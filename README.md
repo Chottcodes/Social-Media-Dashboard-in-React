@@ -1,12 +1,11 @@
-# React + Vite
+// Your name: Chris Wells-Hott
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ // Date Revised: 3/7/2025
 
-Currently, two official plugins are available:
+ // Exercise or Lab name: Social Media Dashboard in React
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ // Brief Description of what you did: I created a Social Media Dashboard that can switch from dark to light. I also Created a backend using models and list to fetch the data for the dashboard.
 
-## Expanding the ESLint configuration
+ // You can add multiple dates with description: 3/6/2025
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+// Person who Peer Reviewed your assignment:
