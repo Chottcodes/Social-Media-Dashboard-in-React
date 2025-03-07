@@ -141,7 +141,7 @@ function App() {
               profilecurrentgrowthIcon={"/assets/icon-up.svg"}
               profilecurrentgrowth={socialMediaData.facebook.followersGrowth}
               profilecurrentgrowthstyle={` ${
-                isDarkMode ? "text-[#1db489]" : "text-[#8b97c6]"
+                isDarkMode ? "text-[#1db489] lg:text-[#1db489]" : "text-white lg:text-[#1db489]"
               }`}
               isDarkMode={isDarkMode}
             />
