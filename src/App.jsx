@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Header from "./components/header";
-import CardComponent from "./components/cardComponent";
-import OverviewHeader from "./components/OverviewHeader";
-import OverviewCardComponent from "./components/OverviewCardComponent";
+import Header from "../src/components/header";
+import CardComponent from "../src/components/cardComponent";
+import OverviewHeader from "../src/components/OverviewHeader";
+import OverviewCardComponent from "../src/components/OverviewCardComponent";
 import { getData } from "./services/DataServices";
 
 function App() {
