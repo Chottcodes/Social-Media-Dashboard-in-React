@@ -143,7 +143,7 @@ function App() {
               profilecurrentgrowthIcon={"/assets/icon-up.svg"}
               profilecurrentgrowth={socialMediaData.instagram.followersGrowth}
               profilecurrentgrowthstyle={`text-white lg:text-[#1db489] ${isDarkMode ? "text-[#1db489]" : "text-[#1db489]"}`}
-              // isDarkMode={isDarkMode}
+              isDarkMode={isDarkMode}
              
             />
             <CardComponent
