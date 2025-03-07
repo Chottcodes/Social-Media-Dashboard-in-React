@@ -10,7 +10,7 @@ const Header = ({ TotalFollowers, isDarkMode, onThemeToggle }) => {
             } text-2xl font-['Inter-Bold']`}>Social Media Dashboard</h1>
           <p
             className={`${
-              isDarkMode ? "text-[#1e202a]" : "text-[#8b97c6]"
+              isDarkMode ? "text-[#63687e]" : "text-[#8b97c6]"
             } pb-5 font-['Inter-Bold']`}
           >
             Total Followers: {TotalFollowers}
@@ -18,7 +18,7 @@ const Header = ({ TotalFollowers, isDarkMode, onThemeToggle }) => {
         </div>
         <hr className="border-[#8b97c6] w-[100%] lg:hidden m-auto " />
         <div className="w-[100%] h-[40%] flex justify-between lg:justify-end lg:gap-3 items-center ">
-          <p className={`${isDarkMode ? "text-[#1e202a]" : "text-[#8b97c6]"} font-['Inter-Bold']`}>
+          <p className={`${isDarkMode ? "text-[#63687e]" : "text-[#8b97c6]"} font-['Inter-Bold']`}>
             Dark Mode
           </p>
           <label className="inline-flex items-center cursor-pointer">

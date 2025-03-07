@@ -12,4 +12,5 @@
 @font-face {
   font-family: 'Inter-Regular';
   src: url(/public/assets/fonts/Inter-Regular.otf);
+  font-weight: 400;
 }

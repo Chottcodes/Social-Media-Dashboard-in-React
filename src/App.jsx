@@ -47,13 +47,15 @@ function App() {
     },
   });
   const [isDarkMode, setIsDarkMode] = useState(false);
-  
-  
+
   useEffect(() => {
     const socialMediaData = async () => {
       const data = await getData();
       const { totalFollowers, facebook, instagram, twitter, youtube } = data[0];
-      console.log(facebook.likes);
+      const instaFollowers = instagram.followers;
+      const instaViews = instagram.profileViews;
+      const instaGramFollowers = MakelowerCase(instaFollowers.toString());
+      const instaGramViews = MakelowerCase(instaViews.toString());
       setSocialMediaData({
         totalFollowers: {
           totalFollowers: totalFollowers.totalFollowers,
@@ -69,11 +71,11 @@ function App() {
         },
         instagram: {
           userName: instagram.userName,
-          followers: instagram.followers,
+          followers: instaGramFollowers,
           followersGrowth: instagram.followersGrowth,
           likes: instagram.likes,
           likesGrowth: instagram.likesGrowth,
-          profileViews: instagram.profileViews,
+          profileViews: instaGramViews,
           profileViewsGrowth: instagram.profileViewsGrowth,
         },
         twitter: {
@@ -98,7 +100,6 @@ function App() {
     };
     socialMediaData();
     ChangeBackground();
-    console.log(isDarkMode);
   }, [isDarkMode]);
 
   const handleThemeToggle = () => {
@@ -106,13 +107,17 @@ function App() {
   };
 
   const ChangeBackground = () => {
-    let root = document.getElementById('root');
-    if(!isDarkMode){
-      root.style.backgroundColor='hsl(230, 17%, 14%)';
-    }else{
-      root.style.backgroundColor='hsl(0, 0%, 100%)';
+    let root = document.getElementById("root");
+    if (!isDarkMode) {
+      root.style.backgroundColor = "hsl(230, 17%, 14%)";
+    } else {
+      root.style.backgroundColor = "hsl(0, 0%, 100%)";
     }
-  }
+  };
+  const MakelowerCase = (input) => {
+    const returnData = input.toLowerCase();
+    return returnData;
+  };
 
   return (
     <>

@@ -26,7 +26,7 @@ const OverviewCardComponent = ({
           <h1
             className={`${
               isDarkMode ? "text-black" : "text-white"
-            } text-[45px]`}
+            } text-[45px] font-[Inter-Bold]`}
           >
             {OverviewNumber}
           </h1>
