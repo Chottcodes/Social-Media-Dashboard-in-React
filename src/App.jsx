@@ -47,11 +47,13 @@ function App() {
     },
   });
   const [isDarkMode, setIsDarkMode] = useState(false);
+  
+  
   useEffect(() => {
     const socialMediaData = async () => {
       const data = await getData();
       const { totalFollowers, facebook, instagram, twitter, youtube } = data[0];
-      console.log(facebook.likes)
+      console.log(facebook.likes);
       setSocialMediaData({
         totalFollowers: {
           totalFollowers: totalFollowers.totalFollowers,
@@ -63,7 +65,7 @@ function App() {
           pageViews: facebook.pageViews,
           pageViewsGrowth: facebook.pageViewsGrowth,
           likes: facebook.likes,
-          likesGrowth: facebook.likesGrowth
+          likesGrowth: facebook.likesGrowth,
         },
         instagram: {
           userName: instagram.userName,
@@ -93,20 +95,33 @@ function App() {
           totalViewsGrowth: youtube.totalViewsGrowth,
         },
       });
-
     };
     socialMediaData();
-    console.log(isDarkMode)
+    ChangeBackground();
+    console.log(isDarkMode);
   }, [isDarkMode]);
 
   const handleThemeToggle = () => {
     setIsDarkMode((prevState) => !prevState);
   };
 
+  const ChangeBackground = () => {
+    let root = document.getElementById('root');
+    if(!isDarkMode){
+      root.style.backgroundColor='hsl(230, 17%, 14%)';
+    }else{
+      root.style.backgroundColor='hsl(0, 0%, 100%)';
+    }
+  }
+
   return (
     <>
       <div className="h-[1220px] lg:h-[390px]">
-        <div className={` ${isDarkMode ? 'bg-[#ffffff]' : 'bg-[#1f212e]'}  w-full lg:flex-row pb-5 rounded-b-2xl h-[200px]`}>
+        <div
+          className={` ${
+            isDarkMode ? "bg-[#f5f7ff]" : "bg-[#1f212e]"
+          }  w-full lg:flex-row pb-5 rounded-b-2xl h-[200px]`}
+        >
           <Header
             TotalFollowers={` ${socialMediaData.totalFollowers.totalFollowers}`}
             isDarkMode={isDarkMode}
@@ -120,7 +135,9 @@ function App() {
               Followers={socialMediaData.facebook.followers}
               profilecurrentgrowthIcon={"/assets/icon-up.svg"}
               profilecurrentgrowth={socialMediaData.facebook.followersGrowth}
-              profilecurrentgrowthstyle={`text-white lg:text-[#1db489] ${isDarkMode ? "text-[#1db489]" : "text-[#8b97c6]"}`}
+              profilecurrentgrowthstyle={`text-white lg:text-[#1db489] ${
+                isDarkMode ? "text-[#1db489]" : "text-[#8b97c6]"
+              }`}
               isDarkMode={isDarkMode}
             />
             <CardComponent
@@ -130,7 +147,9 @@ function App() {
               Followers={socialMediaData.twitter.followers}
               profilecurrentgrowthIcon={"/assets/icon-up.svg"}
               profilecurrentgrowth={socialMediaData.twitter.followersGrowth}
-              profilecurrentgrowthstyle={`text-white lg:text-[#1db489] ${isDarkMode ? "text-[#1db489]" : "text-[#1db489]"}`}
+              profilecurrentgrowthstyle={`text-white lg:text-[#1db489] ${
+                isDarkMode ? "text-[#1db489]" : "text-[#1db489]"
+              }`}
               isDarkMode={isDarkMode}
             />
             <CardComponent
@@ -142,9 +161,10 @@ function App() {
               Followers={socialMediaData.instagram.followers}
               profilecurrentgrowthIcon={"/assets/icon-up.svg"}
               profilecurrentgrowth={socialMediaData.instagram.followersGrowth}
-              profilecurrentgrowthstyle={`text-white lg:text-[#1db489] ${isDarkMode ? "text-[#1db489]" : "text-[#1db489]"}`}
+              profilecurrentgrowthstyle={`text-white lg:text-[#1db489] ${
+                isDarkMode ? "text-[#1db489]" : "text-[#1db489]"
+              }`}
               isDarkMode={isDarkMode}
-             
             />
             <CardComponent
               borderclass={"bg-[#c4032a] w-full h-[3%]"}
@@ -154,7 +174,9 @@ function App() {
               profilecurrentgrowthIcon={"/assets/icon-down.svg"}
               profilecurrentgrowth={socialMediaData.youtube.subscribersGrowth}
               // profilecurrentgrowthstyle={"text-[#dc414c]"}
-              profilecurrentgrowthstyle={`text-white lg:text-[#1db489] ${isDarkMode ? "text-[#1db489]" : "text-[#1db489]"}`}
+              profilecurrentgrowthstyle={`${
+                isDarkMode ? "text-[#dc414c]" : "text-[#dc414c]"
+              }`}
               isDarkMode={isDarkMode}
             />
           </div>
@@ -162,7 +184,7 @@ function App() {
       </div>
       <div className="w-full">
         <div className="w-full lg:w-[90%] lg:flex lg:justify-start pt-10 pb-10 lg:pb-5 m-auto">
-          <OverviewHeader />
+          <OverviewHeader isDarkMode={isDarkMode} />
         </div>
         <div className="w-[90%] lg:h-[40%] grid grid-rows-8 grid-cols-1 lg:grid-rows-2 lg:grid-cols-4 m-auto gap-4 justify-center items-center pb-5">
           <OverviewCardComponent
@@ -171,9 +193,10 @@ function App() {
             OverviewNumber={socialMediaData.facebook.pageViews}
             OverviewGrowthIcon={"/assets/icon-up.svg"}
             OverviewPercent={`${socialMediaData.facebook.pageViewsGrowth}%`}
-            textStyle={"text-[#1db489]"}
+            textStyle={"font-['Inter-Regular'] text-[#1db489]"}
+            isDarkMode={isDarkMode}
           />
-          
+
           <OverviewCardComponent
             OverviewText="Likes"
             PlatformIcon={"/assets/icon-facebook.svg"}
@@ -181,57 +204,61 @@ function App() {
             OverviewGrowthIcon={"/assets/icon-down.svg"}
             OverviewPercent={`${socialMediaData.facebook.likesGrowth}%`}
             textStyle={"text-[#dc414c]"}
-          />
-          <OverviewCardComponent 
-          OverviewText="Likes"
-          PlatformIcon={"/assets/icon-instagram.svg"}
-          OverviewNumber={socialMediaData.instagram.likes}
-          OverviewGrowthIcon={"/assets/icon-up.svg"}
-          OverviewPercent={`${socialMediaData.instagram.likesGrowth}%`}
-          textStyle={"text-[#1db489]"}
-          
-          />
-          <OverviewCardComponent 
-          OverviewText="Profile Views"
-          PlatformIcon={"/assets/icon-instagram.svg"}
-          OverviewNumber={socialMediaData.instagram.profileViews}
-          OverviewGrowthIcon={"/assets/icon-up.svg"}
-          OverviewPercent={`${socialMediaData.instagram.profileViewsGrowth}%`}
-          textStyle={"text-[#1db489]"}
-          />
-          <OverviewCardComponent 
-          OverviewText="Retweets"
-          PlatformIcon={"/assets/icon-twitter.svg"}
-          OverviewNumber={socialMediaData.twitter.retweets}
-          OverviewGrowthIcon={"/assets/icon-up.svg"}
-          OverviewPercent={`${socialMediaData.twitter.retweetsGrowth}%`}
-          textStyle={"text-[#1db489]"}
-          
-          />
-          <OverviewCardComponent 
-          OverviewText="Likes"
-          PlatformIcon={"/assets/icon-twitter.svg"}
-          OverviewNumber={socialMediaData.twitter.likes}
-          OverviewGrowthIcon={"/assets/icon-up.svg"}
-          OverviewPercent={`${socialMediaData.twitter.likeGrowth}%`}
-          textStyle={"text-[#1db489]"}
-          
+            isDarkMode={isDarkMode}
           />
           <OverviewCardComponent
-          OverviewText="Likes"
-          PlatformIcon={"/assets/icon-youtube.svg"}
-          OverviewNumber={socialMediaData.youtube.likes}
-          OverviewGrowthIcon={"/assets/icon-down.svg"}
-          OverviewPercent={`${socialMediaData.youtube.likesGrowth}%`}
-          textStyle={"text-[#dc414c]"}
+            OverviewText="Likes"
+            PlatformIcon={"/assets/icon-instagram.svg"}
+            OverviewNumber={socialMediaData.instagram.likes}
+            OverviewGrowthIcon={"/assets/icon-up.svg"}
+            OverviewPercent={`${socialMediaData.instagram.likesGrowth}%`}
+            textStyle={"text-[#1db489]"}
+            isDarkMode={isDarkMode}
           />
           <OverviewCardComponent
-          OverviewText="Total Views"
-          PlatformIcon={"/assets/icon-youtube.svg"}
-          OverviewNumber={socialMediaData.youtube.totalViews}
-          OverviewGrowthIcon={"/assets/icon-down.svg"}
-          OverviewPercent={`${socialMediaData.youtube.totalViewsGrowth}%`}
-          textStyle={"text-[#dc414c]"}
+            OverviewText="Profile Views"
+            PlatformIcon={"/assets/icon-instagram.svg"}
+            OverviewNumber={socialMediaData.instagram.profileViews}
+            OverviewGrowthIcon={"/assets/icon-up.svg"}
+            OverviewPercent={`${socialMediaData.instagram.profileViewsGrowth}%`}
+            textStyle={"text-[#1db489]"}
+            isDarkMode={isDarkMode}
+          />
+          <OverviewCardComponent
+            OverviewText="Retweets"
+            PlatformIcon={"/assets/icon-twitter.svg"}
+            OverviewNumber={socialMediaData.twitter.retweets}
+            OverviewGrowthIcon={"/assets/icon-up.svg"}
+            OverviewPercent={`${socialMediaData.twitter.retweetsGrowth}%`}
+            textStyle={"text-[#1db489]"}
+            isDarkMode={isDarkMode}
+          />
+          <OverviewCardComponent
+            OverviewText="Likes"
+            PlatformIcon={"/assets/icon-twitter.svg"}
+            OverviewNumber={socialMediaData.twitter.likes}
+            OverviewGrowthIcon={"/assets/icon-up.svg"}
+            OverviewPercent={`${socialMediaData.twitter.likeGrowth}%`}
+            textStyle={"text-[#1db489]"}
+            isDarkMode={isDarkMode}
+          />
+          <OverviewCardComponent
+            OverviewText="Likes"
+            PlatformIcon={"/assets/icon-youtube.svg"}
+            OverviewNumber={socialMediaData.youtube.likes}
+            OverviewGrowthIcon={"/assets/icon-down.svg"}
+            OverviewPercent={`${socialMediaData.youtube.likesGrowth}%`}
+            textStyle={"text-[#dc414c]"}
+            isDarkMode={isDarkMode}
+          />
+          <OverviewCardComponent
+            OverviewText="Total Views"
+            PlatformIcon={"/assets/icon-youtube.svg"}
+            OverviewNumber={socialMediaData.youtube.totalViews}
+            OverviewGrowthIcon={"/assets/icon-down.svg"}
+            OverviewPercent={`${socialMediaData.youtube.totalViewsGrowth}%`}
+            textStyle={"text-[#dc414c]"}
+            isDarkMode={isDarkMode}
           />
         </div>
       </div>

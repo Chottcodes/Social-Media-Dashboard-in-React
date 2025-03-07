@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
 
-const OverviewHeader = () => {
+const OverviewHeader = ({ isDarkMode }) => {
   return (
-    <div><h1 className='text-white pl-6 lg:pl-0 text-[35px]'>Overview - Today</h1></div>
-  )
-}
+    <div>
+      <h1
+        className={`${
+          isDarkMode ? "text-[#63687e]" : "text-white"
+        } pl-6 lg:pl-0 text-[35px] font-['Inter-Bold']`}
+      >
+        Overview - Today
+      </h1>
+    </div>
+  );
+};
 
-export default OverviewHeader
+export default OverviewHeader;

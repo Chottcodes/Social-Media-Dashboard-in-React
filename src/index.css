@@ -4,3 +4,12 @@
 :root{
   background-color: hsl(230, 17%, 14%);
 }
+@font-face {
+  font-family:'Inter-Bold' ;
+  src: url(/public/assets/fonts/Inter-Bold.otf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Inter-Regular';
+  src: url(/public/assets/fonts/Inter-Regular.otf);
+}
