@@ -6,7 +6,7 @@ const CardComponent = ({borderclass,platformIcon,profileName,Followers,profilecu
       <div className={borderclass}></div>
       <div className="w-full h-[20%]  flex justify-center items-center gap-4">
         <img className="h-7" src={platformIcon} alt="icon" />
-        <p className={`${isDarkMode ? "text-[#1e202a]" : "text-[#8b97c6]"} font-['Inter-Regular']`}>{profileName}</p>
+        <p className={`${isDarkMode ? "text-[#646579]" : "text-[#8b97c6]"} font-['Inter-Bold']`}>{profileName}</p>
       </div>
       <div className=" h-[50%] flex flex-col justify-center items-center">
         <h1 className={`${isDarkMode ? "text-[#1e202a]" : "text-white"} text-[50px] font-['Inter-Bold']`}>{Followers}</h1>

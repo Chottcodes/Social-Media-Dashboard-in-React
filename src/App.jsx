@@ -140,7 +140,7 @@ function App() {
               Followers={socialMediaData.facebook.followers}
               profilecurrentgrowthIcon={"/assets/icon-up.svg"}
               profilecurrentgrowth={socialMediaData.facebook.followersGrowth}
-              profilecurrentgrowthstyle={`text-white lg:text-[#1db489] ${
+              profilecurrentgrowthstyle={` ${
                 isDarkMode ? "text-[#1db489]" : "text-[#8b97c6]"
               }`}
               isDarkMode={isDarkMode}
@@ -152,7 +152,7 @@ function App() {
               Followers={socialMediaData.twitter.followers}
               profilecurrentgrowthIcon={"/assets/icon-up.svg"}
               profilecurrentgrowth={socialMediaData.twitter.followersGrowth}
-              profilecurrentgrowthstyle={`text-white lg:text-[#1db489] ${
+              profilecurrentgrowthstyle={`${
                 isDarkMode ? "text-[#1db489]" : "text-[#1db489]"
               }`}
               isDarkMode={isDarkMode}
@@ -166,7 +166,7 @@ function App() {
               Followers={socialMediaData.instagram.followers}
               profilecurrentgrowthIcon={"/assets/icon-up.svg"}
               profilecurrentgrowth={socialMediaData.instagram.followersGrowth}
-              profilecurrentgrowthstyle={`text-white lg:text-[#1db489] ${
+              profilecurrentgrowthstyle={`${
                 isDarkMode ? "text-[#1db489]" : "text-[#1db489]"
               }`}
               isDarkMode={isDarkMode}
@@ -198,7 +198,7 @@ function App() {
             OverviewNumber={socialMediaData.facebook.pageViews}
             OverviewGrowthIcon={"/assets/icon-up.svg"}
             OverviewPercent={`${socialMediaData.facebook.pageViewsGrowth}%`}
-            textStyle={"font-['Inter-Regular'] text-[#1db489]"}
+            textStyle={"text-[#1db489]"}
             isDarkMode={isDarkMode}
           />
 
